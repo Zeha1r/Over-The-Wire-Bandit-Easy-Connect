@@ -14,10 +14,15 @@ sso() {
                 sshpass -p "$var" ssh "bandit$1@bandit.labs.overthewire.org" -p 2220
                 STATUS=$?
                 if [ $STATUS -ne 0 ]; then
-                        ssh "bandit$1@bandit.labs.overthewire.org" -p 2220
+                        passwdline=$(grep -E "bandit$1:" $HOME/etc/otw/passwds.txt | tail -n 1)
+                        passwdcurr=$(echo "$passwdline" | sed -E 's/.*bandit([0-9]+).*/\1/')
+                        shpass -p "$passwdcurr" ssh "bandit$1@bandit.labs.overthewire.org" -p 2220
                         STATUS=$?
-                        if [ $STATUS -eq 0 ]; then
-                                sed -i "$1s/.*/bandit$1:$var/" $HOME/etc/otw/passwds.txt
+                        if [ $STATUS -ne 0 ]; then
+                                ssh "bandit$1@bandit.labs.overthewire.org" -p 2220
+                                if [ $STATUS -eq 0 ]; then
+                                        echo "passwd not saved, use 2 args to save progress"
+                                fi
                         fi
 
                 fi
