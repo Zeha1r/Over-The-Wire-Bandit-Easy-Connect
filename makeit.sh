@@ -7,7 +7,11 @@ sso() {
                 sshpass -p "$2" ssh "bandit$1@bandit.labs.overthewire.org" -p 2220
                 STATUS=$?
                 if [ $STATUS -eq 0]; then
-                        sed -i "$1s/.*/bandit$1:$2/" $HOME/etc/otw/passwds.txt
+                        if grep -q "^bandit$1:" "$HOME/etc/otw/passwds.txt"; then
+                                sed -i "s|^bandit$1:.*|bandit$1:$2|" "$HOME/etc/otw/passwds.txt"
+                        else
+                                echo "bandit$1:$2" >> "$HOME/etc/otw/passwds.txt"
+                        fi
                 fi
         elif [ $# -eq 1 ]; then
                 var=$(xclip -selection c -o)
