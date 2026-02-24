@@ -24,10 +24,8 @@ A streamlined Bash utility for managing OverTheWire Bandit wargame credentials a
 2.  **Add to Shell Profile:**
     Append the sso() function code to your ~/.bashrc or ~/.zshrc file.
 
-3.  **Apply Changes:**
-    ```bash
-    source ~/.bashrc
-    ```
+    Alternatively run the install if you don't have it
+    
 
 ---
 
