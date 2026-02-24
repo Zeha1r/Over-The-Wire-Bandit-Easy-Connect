@@ -42,10 +42,9 @@ sso() {
                                 fi
                         fi
         #        fi
-
         elif [ $# -eq 0 ]; then
-                last=$(grep -E "bandit[0-9]*:" $HOME/etc/otw/passwds.txt | tail -n '1')
-                num1=$(echo "$last" | sed -E 's/.*bandit([0-9]+).*/\1/' | tr -d "a-zA-Z")
+                last=$(grep -E "bandit[0-9]*:" $HOME/etc/otw/passwds.txt | tail -n 1)
+                num1=$(echo "$last" | sed -E 's/.*bandit([0-9]+).*/\1/' | tr -d "a-zA-Z" )
                 num2=$(echo "$last" | cut -d':' -f2-)
                 sshpass -p "$num2" ssh "bandit$num1@bandit.labs.overthewire.org" -p 2220
         fi
