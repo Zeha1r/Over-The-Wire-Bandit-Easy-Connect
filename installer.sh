@@ -10,6 +10,19 @@ MAN_PATH="/usr/local/share/man/man1/$COMMAND_NAME.1"
 
 echo "--- Installing $COMMAND_NAME ---"
 
+#  Check for dependencies (sshpass)
+if ! command -v sshpass &> /dev/null; then
+    echo "Dependency 'sshpass' not found. Attempting to install..."
+    if command -v apt-get &> /dev/null; then
+        sudo apt-get update && sudo apt-get install -y sshpass
+    elif command -v brew &> /dev/null; then
+        brew install esolitos/ipa/sshpass # Note: might work?
+    else
+        echo "Could not auto-install sshpass. Please install it manually."
+    fi
+fi
+
+
 #  Download files to tmp
 echo "Downloading source and manual..."
 curl -sSL "$SOURCE_URL" -o /tmp/"$COMMAND_NAME"

@@ -33,7 +33,7 @@ A streamlined Bash utility for managing OverTheWire Bandit wargame credentials a
 
 1. **Uninstall command & man pages**
     ```bash
-    curl -sSL https://github.com/FuzzyVee/Over-The-Wire-Bandit-Easy-Connect/blob/main/unins.sh | bash
+    curl -sSL https://raw.githubusercontent.com/FuzzyVee/Over-The-Wire-Bandit-Easy-Connect/refs/heads/main/unins.sh | bash
     ```
 
 ---
