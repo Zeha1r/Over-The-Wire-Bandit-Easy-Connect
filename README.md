@@ -21,19 +21,19 @@ A streamlined Bash utility for managing OverTheWire Bandit wargame credentials a
     sudo apt update && sudo apt install sshpass openssh-client
     ```
 
-2.  **Add to Shell Profile:** 
+2.  **Install command & man pages** 
     
     ```bash
-    curl -sSL [https://raw.githubusercontent.com/user/repo/main/install.sh](https://raw.githubusercontent.com/user/repo/main/install.sh) | bash
+    curl -sSL https://raw.githubusercontent.com/FuzzyVee/Over-The-Wire-Bandit-Easy-Connect/refs/heads/main/installer.sh | bash
     ```
 
 ---
 
 ## Uninstallation
 
-1. **Uninstall command ^ man pages**
+1. **Uninstall command & man pages**
     ```bash
-    curl -sSL [https://raw.githubusercontent.com/user/repo/main/uninstall.sh](https://raw.githubusercontent.com/user/repo/main/uninstall.sh) | bash
+    curl -sSL https://github.com/FuzzyVee/Over-The-Wire-Bandit-Easy-Connect/blob/main/unins.sh | bash
     ```
 
 ---
