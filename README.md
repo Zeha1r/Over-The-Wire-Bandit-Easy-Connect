@@ -21,11 +21,20 @@ A streamlined Bash utility for managing OverTheWire Bandit wargame credentials a
     sudo apt update && sudo apt install sshpass openssh-client
     ```
 
-2.  **Add to Shell Profile:**
-    Append the sso() function code to your ~/.bashrc or ~/.zshrc file.
-
-    Alternatively run the install if you don't have it
+2.  **Add to Shell Profile:** 
     
+    ```bash
+    curl -sSL [https://raw.githubusercontent.com/user/repo/main/install.sh](https://raw.githubusercontent.com/user/repo/main/install.sh) | bash
+    ```
+
+---
+
+## Uninstallation
+
+1. **Uninstall command ^ man pages**
+    ```bash
+    curl -sSL [https://raw.githubusercontent.com/user/repo/main/uninstall.sh](https://raw.githubusercontent.com/user/repo/main/uninstall.sh) | bash
+    ```
 
 ---
 

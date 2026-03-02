@@ -1,10 +1,24 @@
-#$SHELL
+#!/usr/bin/env bash
 
-if grep -q "sso" ~/.bashrc; then
-    sed -i '/sso/d' ~/.bashrc
-    echo "Bashrc Command text added."
+COMMAND_NAME="sso"
+INSTALL_PATH="/usr/local/bin/$COMMAND_NAME"
+MAN_PATH="/usr/local/share/man/man1/$COMMAND_NAME.1"
+
+echo "--- Uninstalling $COMMAND_NAME ---"
+
+# Remove the executable
+if [ -f "$INSTALL_PATH" ]; then
+    sudo rm "$INSTALL_PATH"
+    echo "Removed $INSTALL_PATH"
 fi
-if [ -d "$HOME/etc/otw" ]; then
-    rm -rf "$HOME/etc/otw"
-    echo "Directory Otw deleted."
+
+# Remove the EM-manuel
+if [ -f "$MAN_PATH" ]; then
+    sudo rm "$MAN_PATH"
+    echo "Removed $MAN_PATH"
 fi
+
+# Update man db wich idk how it works but buen practica 
+sudo mandb -q 2>/dev/null
+
+echo "Uninstallation complete."
