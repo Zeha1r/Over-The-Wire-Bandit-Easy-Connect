@@ -1,0 +1,35 @@
+.TH SSO 1 "MARCH 2024" "1.0" "Bandit SSO Manual"
+.SH NAME
+sso \- Streamlined SSH utility for OverTheWire Bandit wargame
+.SH SYNOPSIS
+.B sso
+[\fI-p level\fR] [\fI-l\fR] [\fI-h\fR] [\fIpassword|keyfile\fR]
+.SH DESCRIPTION
+.B sso
+automates credential management and connections for Bandit levels. 
+It saves passwords to ~/etc/otw/passwds.txt and manages SSH keys in ~/etc/otw/keys/.
+.SH OPTIONS
+.TP
+.B sso
+Connect to the highest reached level.
+.TP
+.B sso <password|keyfile>
+Test credentials for the next level; if successful, saves them.
+.TP
+.B sso -p <level>
+Connect to a specific level using saved credentials.
+.TP
+.B sso -p <level> <pass>
+Connect to a specific level and update it with a new password.
+.TP
+.B sso -l
+List all saved credentials in a table format.
+.TP
+.B sso -h
+Show the help menu.
+.SH FILES
+.I ~/etc/otw/passwds.txt
+Stored passwords for Bandit levels.
+.I ~/etc/otw/keys/
+Stored SSH private keys.
+
